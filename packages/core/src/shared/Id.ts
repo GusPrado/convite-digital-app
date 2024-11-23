@@ -1,9 +1,8 @@
+import {v4 as uuid } from 'uuid'
+
 export default class Id {
   static new(): string {
-    return `${this.hash()}-${this.hash()}-${this.hash()}`
+    return  uuid()
   }
 
-  private static hash(): string {
-    return Math.random().toString(36).substring(2, 15)
-  }
 }

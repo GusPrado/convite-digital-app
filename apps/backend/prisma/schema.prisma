@@ -9,3 +9,32 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Event {
+  id              String   @id @default(uuid())
+  name            String
+  alias           String
+  password        String
+  date            DateTime
+  location        String
+  description     String
+  image           String
+  backgroundImage String
+  expectedPublic  Int
+  guests          Guest[]
+
+  @@map("events")
+}
+
+model Guest {
+  id              String  @id @default(uuid())
+  name            String
+  email           String
+  confirmed       Boolean
+  companion       Boolean
+  companionAmount Int
+  event           Event?  @relation(fields: [eventId], references: [id])
+  eventId         String?
+
+  @@map("guests")
+}

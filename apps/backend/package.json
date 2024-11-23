@@ -25,6 +25,7 @@
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "@prisma/client": "^5.22.0",
     "core": "*",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
@@ -70,5 +71,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "prisma": {
+    "seed": "npx ts-node ./prisma/seed.ts"
   }
 }
