@@ -3,3 +3,11 @@ GET http://localhost:4000/events
 
 ###
 GET http://localhost:4000/events/12345
+
+###
+POST http://localhost:4000/events/access
+Content-Type: application/json
+{
+  "event": "alias-here",
+  "id": "id-here"
+}
