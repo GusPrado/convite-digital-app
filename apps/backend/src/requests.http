@@ -1,0 +1,5 @@
+
+GET http://localhost:4000/events
+
+###
+GET http://localhost:4000/events/12345
