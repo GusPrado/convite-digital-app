@@ -1,10 +1,16 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpException,
+  Param,
+  Post,
+} from '@nestjs/common';
 import {
   complementEvent,
   complementGuest,
   Event,
   EventDate,
-  events_seed,
   Guest,
   Id,
 } from 'core';
@@ -63,11 +69,11 @@ export class EventsController {
     const event = await this.repository.getById(data.id);
 
     if (!event) {
-      throw new Error('Evento não encontrado.');
+      throw new HttpException('Evento não encontrado.', 400);
     }
 
     if (event.password !== data.password) {
-      throw new Error('Senha não corresponde ao evento.');
+      throw new HttpException('Senha não corresponde ao evento.', 400);
     }
 
     return this.serialize(event);
